@@ -13,15 +13,16 @@ def incrementalSVD(mat_a1, mat_a2, k):
 
   if mat_a1.shape[0] != mat_a2.shape[0]:
     raise ValueError('Error: the number of rows both in mat_a1 and mat_a2 should be the same')
-  if k < 1:
-    raise ValueError('Error: rank k must be greater than or equal to 1')
-  if k > min(m, n1 + n2):
-    raise ValueError('Error: rank k must be less than or equal to min(m, n1 + n2)')
 
   # get the number of rows and columns
   m = mat_a1.shape[0]
   n1 = mat_a1.shape[1]
   n2 = mat_a2.shape[1]
+
+  if k < 1:
+    raise ValueError('Error: rank k must be greater than or equal to 1')
+  if k > min(m, n1 + n2):
+    raise ValueError('Error: rank k must be less than or equal to min(m, n1 + n2)')
 
   # apply SVD for the original matrix
   mat_u1, vec_s1, mat_v1t = ln.svd(mat_a1, full_matrices=False)
