@@ -5,8 +5,8 @@ import unittest
 class TestIncrementalSVD(unittest.TestCase):
 
   def test_svd(self):
-    mat_a1 = np.array([[5, 3, 0], [2, 4, 5]])
-    mat_a2 = np.array([[0], [0]])
+    mat_a1 = np.random.randn(2, 3)
+    mat_a2 = np.random.randn(2, 1)
     k = 2 # same as the original
     mat_u, mat_s, mat_vt = incrementalSVD(mat_a1, mat_a2, k)
     np.testing.assert_array_almost_equal(np.dot(np.dot(mat_u, mat_s), mat_vt), np.hstack((mat_a1, mat_a2)))
