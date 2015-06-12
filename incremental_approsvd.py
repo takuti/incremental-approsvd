@@ -30,9 +30,9 @@ def incrementalApproSVD(mat_b1, mat_b2, c1, c2, k, p1, p2):
   n1 = mat_b1.shape[1]
   n2 = mat_b2.shape[1]
 
-  if c1 < n1:
+  if c1 >= n1:
     raise ValueError('Error: c1 must be less than n1')
-  if c2 < n2:
+  if c2 >= n2:
     raise ValueError('Error: c2 must be less than n2')
 
   if k < 1:
