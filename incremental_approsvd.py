@@ -20,9 +20,9 @@ def incrementalApproSVD(mat_b1, mat_b2, c1, c2, k, p1, p2):
   if len(p2[p2<0]) != 0:
     raise ValueError('Error: negative probabilities in p2 are not allowed')
 
-  if sum(p1) != 1.:
+  if not np.isclose(sum(p1), 1.):
     raise ValueError('Error: sum of the probabilities must be 1 for p1')
-  if sum(p2) != 1.:
+  if not np.isclose(sum(p2), 1.):
     raise ValueError('Error: sum of the probabilities must be 1 for p2')
 
   # get the number of rows and columns
