@@ -2,7 +2,7 @@ import numpy as np
 import numpy.linalg as ln
 import sys
 
-def incrementalSVD(mat_a1, mat_a2, k):
+def incrementalSVD(mat_a1, mat_a2, k, only_uk=False):
   """Apply SVD for a matrix with new columns
 
   :param mat_a1: original matrix (m x n1)
@@ -34,6 +34,7 @@ def incrementalSVD(mat_a1, mat_a2, k):
 
   # keep rank-k approximation
   mat_uf = mat_uf[:, :k]
+  if only_uk: return  np.dot(mat_u1, mat_uf)
   vec_sf = vec_sf[:k]
   mat_vft = mat_vft[:k, :]
 
